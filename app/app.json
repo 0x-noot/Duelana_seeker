@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Duelana",
+    "slug": "duelana",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#1a1a2e"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a1a2e"
+      },
+      "package": "com.duelana.app"
+    },
+    "plugins": []
+  }
+}

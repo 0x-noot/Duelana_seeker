@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.yarn/
+
+# Anchor build artifacts
+target/
+.anchor/
+
+# Expo / React Native
+app/.expo/
+app/android/
+app/ios/
+
+# Keypair backups
+duelana-keypair.json.bak
+
+# Environment
+.env
+.env.local
+
+# Claude / AI
+CLAUDE.md
+llms.txt
+.claude/
+nul
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Build
+dist/

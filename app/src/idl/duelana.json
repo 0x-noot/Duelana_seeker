@@ -1,0 +1,187 @@
+{
+  "address": "3gE3AwSm9yVYCTSXHFiqWShzoU5vGjwTXJRL7WLz6vNv",
+  "metadata": {
+    "name": "duelana",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "createDuel",
+      "discriminator": [49, 28, 93, 11, 75, 242, 69, 165],
+      "accounts": [
+        { "name": "creator", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "escrow", "writable": true },
+        { "name": "systemProgram" }
+      ],
+      "args": [
+        { "name": "betAmount", "type": "u64" },
+        { "name": "createdAt", "type": "i64" }
+      ]
+    },
+    {
+      "name": "joinDuel",
+      "discriminator": [7, 247, 76, 103, 101, 139, 254, 61],
+      "accounts": [
+        { "name": "challenger", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "escrow", "writable": true },
+        { "name": "systemProgram" },
+        { "name": "oracleQueue", "writable": true },
+        { "name": "programIdentity", "writable": true },
+        { "name": "vrfProgram" },
+        { "name": "slotHashes" }
+      ],
+      "args": []
+    },
+    {
+      "name": "resolveDuel",
+      "discriminator": [213, 162, 203, 235, 151, 236, 178, 64],
+      "accounts": [
+        { "name": "vrfProgramIdentity", "signer": true },
+        { "name": "duel", "writable": true }
+      ],
+      "args": [
+        { "name": "result", "type": { "array": ["u8", 32] } }
+      ]
+    },
+    {
+      "name": "claimWinnings",
+      "discriminator": [161, 215, 24, 59, 14, 236, 242, 221],
+      "accounts": [
+        { "name": "winner", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "escrow", "writable": true },
+        { "name": "treasury", "writable": true },
+        { "name": "systemProgram" }
+      ],
+      "args": []
+    },
+    {
+      "name": "cancelDuel",
+      "discriminator": [83, 124, 224, 237, 235, 44, 38, 57],
+      "accounts": [
+        { "name": "creator", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "escrow", "writable": true },
+        { "name": "systemProgram" }
+      ],
+      "args": []
+    },
+    {
+      "name": "createTokenDuel",
+      "discriminator": [51, 10, 214, 163, 76, 216, 54, 225],
+      "accounts": [
+        { "name": "creator", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "tokenEscrow", "writable": true },
+        { "name": "creatorTokenAccount", "writable": true },
+        { "name": "tokenMint" },
+        { "name": "tokenProgram" },
+        { "name": "systemProgram" }
+      ],
+      "args": [
+        { "name": "betAmount", "type": "u64" },
+        { "name": "createdAt", "type": "i64" }
+      ]
+    },
+    {
+      "name": "joinTokenDuel",
+      "discriminator": [149, 66, 106, 162, 109, 96, 25, 187],
+      "accounts": [
+        { "name": "challenger", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "tokenEscrow", "writable": true },
+        { "name": "challengerTokenAccount", "writable": true },
+        { "name": "tokenMint" },
+        { "name": "tokenProgram" },
+        { "name": "systemProgram" },
+        { "name": "oracleQueue", "writable": true },
+        { "name": "programIdentity", "writable": true },
+        { "name": "vrfProgram" },
+        { "name": "slotHashes" }
+      ],
+      "args": []
+    },
+    {
+      "name": "claimTokenWinnings",
+      "discriminator": [186, 100, 228, 224, 253, 49, 42, 230],
+      "accounts": [
+        { "name": "winner", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "tokenEscrow", "writable": true },
+        { "name": "winnerTokenAccount", "writable": true },
+        { "name": "treasury" },
+        { "name": "treasuryTokenAccount", "writable": true },
+        { "name": "tokenMint" },
+        { "name": "tokenProgram" }
+      ],
+      "args": []
+    },
+    {
+      "name": "cancelTokenDuel",
+      "discriminator": [100, 34, 62, 135, 123, 98, 207, 240],
+      "accounts": [
+        { "name": "creator", "writable": true, "signer": true },
+        { "name": "duel", "writable": true },
+        { "name": "tokenEscrow", "writable": true },
+        { "name": "creatorTokenAccount", "writable": true },
+        { "name": "tokenMint" },
+        { "name": "tokenProgram" },
+        { "name": "systemProgram" }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Duel",
+      "discriminator": [126, 229, 210, 60, 177, 135, 124, 224]
+    }
+  ],
+  "types": [
+    {
+      "name": "Duel",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "creator", "type": "pubkey" },
+          { "name": "challenger", "type": "pubkey" },
+          { "name": "betAmount", "type": "u64" },
+          { "name": "tokenMint", "type": "pubkey" },
+          { "name": "feeBps", "type": "u16" },
+          { "name": "status", "type": { "defined": { "name": "DuelStatus" } } },
+          { "name": "winner", "type": "pubkey" },
+          { "name": "escrowBump", "type": "u8" },
+          { "name": "duelBump", "type": "u8" },
+          { "name": "createdAt", "type": "i64" },
+          { "name": "vrfResult", "type": { "option": { "array": ["u8", 32] } } }
+        ]
+      }
+    },
+    {
+      "name": "DuelStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          { "name": "Waiting" },
+          { "name": "Active" },
+          { "name": "Resolved" },
+          { "name": "Claimed" },
+          { "name": "Cancelled" }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    { "code": 6000, "name": "InvalidDuelState", "msg": "Duel is not in the expected state" },
+    { "code": 6001, "name": "InvalidBetAmount", "msg": "Bet amount must be greater than zero" },
+    { "code": 6002, "name": "CreatorCannotJoin", "msg": "Creator cannot join their own duel" },
+    { "code": 6003, "name": "NotWinner", "msg": "Only the winner can claim" },
+    { "code": 6004, "name": "InsufficientEscrow", "msg": "Insufficient escrow balance" },
+    { "code": 6005, "name": "VrfNotReady", "msg": "VRF result not yet available" },
+    { "code": 6006, "name": "Overflow", "msg": "Arithmetic overflow" },
+    { "code": 6007, "name": "UnsupportedMint", "msg": "Unsupported token mint" }
+  ]
+}
