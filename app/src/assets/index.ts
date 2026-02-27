@@ -6,6 +6,7 @@ export const backgrounds = {
   castleWithLogo: require('../../assets/sprites/web_sprites/background.png'),
   homeNew: require('../../assets/sprites/web_sprites/background_new.png'),
   battlefield: require('../../assets/sprites/web_sprites/battlefiled_temporary.png'),
+  duelArena: require('../../assets/sprites/web_sprites/duel_arena.png'),
 };
 
 // Logo

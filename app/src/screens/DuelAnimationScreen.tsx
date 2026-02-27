@@ -435,7 +435,7 @@ export function DuelAnimationScreen({ route, navigation }: Props) {
 
   return (
     <ImageBackground
-      source={backgrounds.battlefield}
+      source={backgrounds.duelArena}
       style={styles.background}
       resizeMode="cover"
     >
@@ -591,7 +591,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(26, 15, 8, 0.4)',
+    backgroundColor: 'rgba(26, 15, 8, 0.2)',
     paddingTop: spacing.xl + 20,
     paddingBottom: spacing.md,
   },

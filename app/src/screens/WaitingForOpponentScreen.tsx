@@ -138,7 +138,7 @@ export function WaitingForOpponentScreen({ navigation, route }: Props) {
 
   return (
     <ImageBackground
-      source={backgrounds.battlefield}
+      source={backgrounds.duelArena}
       style={styles.background}
       resizeMode="cover"
     >
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     padding: spacing.md,
-    backgroundColor: 'rgba(26, 15, 8, 0.4)',
+    backgroundColor: 'rgba(26, 15, 8, 0.2)',
   },
   titleBanner: {
     alignItems: 'center',
