@@ -16,7 +16,8 @@ import { useDuelSubscription } from '../hooks/useDuelSubscription';
 import { useConnection } from '../providers/ConnectionProvider';
 import { useWallet } from '../providers/WalletProvider';
 import { RootStackParamList } from '../navigation/RootNavigator';
-import { backgrounds, fighters, ui, panels, buttons } from '../assets';
+import { backgrounds, fighters, ui, panels, buttons, duelBackgroundFrames } from '../assets';
+import AnimatedBackground from '../components/AnimatedBackground';
 import { PixelButton } from '../components/PixelButton';
 import { SpriteAnimator } from '../components/SpriteAnimator';
 import { ScrollPanel } from '../components/ScrollPanel';
@@ -434,8 +435,9 @@ export function DuelAnimationScreen({ route, navigation }: Props) {
   const p2IsLoser = winner === 'creator';
 
   return (
-    <ImageBackground
-      source={backgrounds.duelArena}
+    <AnimatedBackground
+      frames={duelBackgroundFrames}
+      frameDuration={200}
       style={styles.background}
       resizeMode="cover"
     >
@@ -581,7 +583,7 @@ export function DuelAnimationScreen({ route, navigation }: Props) {
           </View>
         )}
       </View>
-    </ImageBackground>
+    </AnimatedBackground>
   );
 }
 

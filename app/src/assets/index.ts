@@ -9,6 +9,25 @@ export const backgrounds = {
   duelArena: require('../../assets/sprites/web_sprites/duel_arena.png'),
 };
 
+// Animated background frame sequences
+export const homeBackgroundFrames = [
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_0.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_1.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_2.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_3.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_4.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/home/home_5.png'),
+];
+
+export const duelBackgroundFrames = [
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_0.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_1.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_2.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_3.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_4.png'),
+  require('../../assets/sprites/web_sprites/backgrounds/duel/duel_5.png'),
+];
+
 // Logo
 export const logo = require('../../assets/sprites/web_sprites/Logo.png');
 

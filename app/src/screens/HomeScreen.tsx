@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ImageBackground, StyleSheet, Modal, ScrollView, Pressable } from 'react-native';
+import AnimatedBackground from '../components/AnimatedBackground';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { colors, fontFamily, spacing } from '../theme';
 import { PixelButton } from '../components/PixelButton';
@@ -8,7 +9,7 @@ import { RSCloseButton } from '../components/RSCloseButton';
 import { WalletConnectButton } from '../components/WalletConnectButton';
 import { useWallet } from '../providers/WalletProvider';
 import { RootStackParamList } from '../navigation/RootNavigator';
-import { backgrounds, buttons } from '../assets';
+import { backgrounds, buttons, homeBackgroundFrames } from '../assets';
 import { useScreenMusic, useMuted, useToggleMute } from '../audio/useAudio';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
@@ -22,8 +23,9 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <>
-    <ImageBackground
-      source={backgrounds.homeNew}
+    <AnimatedBackground
+      frames={homeBackgroundFrames}
+      frameDuration={200}
       style={styles.background}
       resizeMode="cover"
     >
@@ -67,7 +69,7 @@ export function HomeScreen({ navigation }: Props) {
           )}
         </View>
       </View>
-    </ImageBackground>
+    </AnimatedBackground>
 
     <Modal
       visible={showInfo}
