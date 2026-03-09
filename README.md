@@ -2,6 +2,8 @@
 
 > A provably fair on-chain dueling game built for the **Solana Seeker** phone.
 
+**[Download APK →](https://github.com/0x-noot/Duelana_seeker/releases/tag/v1.0.0)**
+
 Duelana is a medieval pixel art fighting game at heart — but underneath the swords and fanfare it's a 50/50 wager resolved by **MagicBlock VRF**. Two players lock SOL or SKR tokens in escrow, the VRF oracle picks a winner, and a ~26-second sprite animation plays out the dramatic result.
 
 Deployed to **Solana Devnet** and playable on Android via the Solana Mobile Stack or in Web browsers.
@@ -97,6 +99,18 @@ Duelana_seeker/
 | SKR Protocol Fee | 1% (100 bps) |
 | VRF Oracle Queue | `Cuj97ggrhhidhbu39TijNVqE74xvKJ69gDervRUXAxGh` |
 | Win condition | `vrf_result[0] < 128` → creator wins |
+
+---
+
+## Download
+
+The latest standalone Android APK (no Metro dev server required) is available on the [Releases page](https://github.com/0x-noot/Duelana_seeker/releases/tag/v1.0.0).
+
+**Install:**
+```bash
+adb install app-debug.apk
+```
+Requires a Solana Seeker phone (Android 15) with a Solana wallet installed for MWA signing.
 
 ---
 
