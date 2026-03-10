@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
   statusBadge: {
     fontFamily,
     fontSize: 10,
-    color: colors.primary,
+    color: colors.black,
     borderWidth: 1,
-    borderColor: colors.primary,
+    borderColor: colors.black,
     paddingHorizontal: spacing.xs,
     paddingVertical: 2,
   },

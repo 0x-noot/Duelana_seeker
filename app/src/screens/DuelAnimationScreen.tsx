@@ -620,9 +620,9 @@ const styles = StyleSheet.create({
   fighterLabel: {
     fontFamily,
     fontSize: 13,
-    color: colors.textLight,
-    textShadowColor: colors.black,
-    textShadowOffset: { width: 1, height: 1 },
+    color: '#ffffff',
+    textShadowColor: '#000000',
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 0,
   },
   spriteContainer: {
@@ -666,9 +666,8 @@ const styles = StyleSheet.create({
   },
   koOverlay: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: SCREEN_HEIGHT * 0.12,
     zIndex: 10,
   },
   koBanner: {

@@ -6,15 +6,18 @@ import { truncateAddress, formatSol, formatToken } from '../utils/format';
 import { SKR_DECIMALS } from '../utils/constants';
 import { colors, fontFamily, spacing } from '../theme';
 import { ScrollPanel } from './ScrollPanel';
+import { PixelButton } from './PixelButton';
 
 interface Props {
   publicKey: PublicKey;
   duel: DuelAccount;
   userPublicKey: PublicKey;
   onPress: (duelPubkey: string) => void;
+  onClaim?: (duelPubkey: string) => void;
+  claiming?: boolean;
 }
 
-export function HistoryCard({ publicKey, duel, userPublicKey, onPress }: Props) {
+export function HistoryCard({ publicKey, duel, userPublicKey, onPress, onClaim, claiming }: Props) {
   const statusKey = Object.keys(duel.status)[0];
   const betRaw = duel.betAmount?.toNumber?.() ?? 0;
   const isWinner = duel.winner.equals(userPublicKey);
@@ -31,6 +34,9 @@ export function HistoryCard({ publicKey, duel, userPublicKey, onPress }: Props) 
   // Date from createdAt timestamp
   const date = new Date(duel.createdAt.toNumber() * 1000);
   const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+  // Unclaimed win: resolved but not yet claimed
+  const isUnclaimed = statusKey === 'resolved' && isWinner;
 
   // Result info
   let resultLabel: string;
@@ -76,6 +82,14 @@ export function HistoryCard({ publicKey, duel, userPublicKey, onPress }: Props) 
             <Text style={[styles.amount, { color: resultColor }]}>
               {amountStr}
             </Text>
+            {isUnclaimed && onClaim && (
+              <PixelButton
+                title={claiming ? '...' : 'CLAIM!'}
+                onPress={() => onClaim(publicKey.toBase58())}
+                disabled={claiming}
+                small
+              />
+            )}
           </View>
         </View>
       </ScrollPanel>
